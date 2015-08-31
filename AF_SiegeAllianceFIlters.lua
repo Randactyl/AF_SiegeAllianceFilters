@@ -14,7 +14,10 @@ local lookup = {
    ["27964"] = AD, --Dominion Meatbag Catapult
    ["27967"] = AD, --Dominion Oil Catapult
    ["44770"] = AD, --Dominion Scattershot Catapult
- 
+   ["64512"] = AD, --Dominion Cold Fire Trebuchet
+   ["64515"] = AD, --Dominion Cold Fire Ballista
+   ["64520"] = AD, --Dominion Cold Stone Trebuchet
+
    ["29534"] = EP, --Pact Forward Camp
    ["44921"] = EP, --Limited Pact Forward Camp
    ["27850"] = EP, --Pact Battering Ram
@@ -27,6 +30,9 @@ local lookup = {
    ["27965"] = EP, --Pact Meatbag Catapult
    ["27968"] = EP, --Pact Oil Catapult
    ["44777"] = EP, --Pact Scattershot Catapult
+   ["64513"] = EP, --Pact Cold Fire Trebuchet
+   ["64516"] = EP, --Pact Cold Fire Ballista
+   ["64519"] = EP, --Pact Cold Stone Trebuchet
 
    ["29535"] = DC, --Covenant Forward Camp
    ["27835"] = DC, --Covenant Battering Ram
@@ -39,10 +45,13 @@ local lookup = {
    ["27966"] = DC, --Covenant Meatbag Catapult
    ["27969"] = DC, --Covenant Oil Catapult
    ["44773"] = DC, --Covenant Scattershot Catapult
+   ["64514"] = DC, --Covenant Cold Fire Trebuchet
+   ["64517"] = DC, --Covenant Cold Fire Ballista
+   ["64518"] = DC, --Covenant Cold Stone Trebuchet
 }
 
 local function GetFilterCallbackAlliance(alliance)
-   return function( slot )
+   return function(slot)
       local bagId = slot.dataEntry.data.bagId
       local slotIndex = slot.dataEntry.data.slotIndex
 
