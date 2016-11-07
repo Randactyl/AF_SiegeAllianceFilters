@@ -1,7 +1,7 @@
 ## Title: Advanced Filters - Siege Alliance Filters
 ## Author: Randactyl
-## Version: 1.2.0.3
-## APIVersion: 100016
+## Version: 1.2.0.4
+## APIVersion: 100017
 ## DependsOn: AdvancedFilters
 
 AF_SiegeAllianceFilters.lua
