@@ -62,6 +62,7 @@ local function GetFilterCallbackAlliance(alliance)
         local itemLink = util.GetItemLink(slot)
         local itemId = select(4, ZO_LinkHandler_ParseLink(itemLink))
 
+        if lookup[itemId] == alliance or lookup[itemId] == ANY then return true end
     end
 end
 
