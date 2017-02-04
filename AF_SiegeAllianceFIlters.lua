@@ -2,6 +2,8 @@ local AD = 1
 local EP = 2
 local DC = 3
 
+local util = AdvancedFilters.util
+
 local lookup = {
     ["29533"] = AD, --Dominion Forward Camp
     ["27136"] = AD, --Dominion Battering Ram
@@ -52,9 +54,8 @@ local lookup = {
 
 local function GetFilterCallbackAlliance(alliance)
     return function(slot)
-        local bagId = slot.dataEntry.data.bagId
-        local slotIndex = slot.dataEntry.data.slotIndex
-        local itemId = select(4, ZO_LinkHandler_ParseLink(GetItemLink(bagId, slotIndex)))
+        local itemLink = util.GetItemLink(slot)
+        local itemId = select(4, ZO_LinkHandler_ParseLink(itemLink))
 
         if lookup[itemId] == alliance then return true end
     end
