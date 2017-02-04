@@ -51,35 +51,31 @@ local lookup = {
 }
 
 local function GetFilterCallbackAlliance(alliance)
-   return function(slot)
-      local bagId = slot.dataEntry.data.bagId
-      local slotIndex = slot.dataEntry.data.slotIndex
+    return function(slot)
+        local bagId = slot.dataEntry.data.bagId
+        local slotIndex = slot.dataEntry.data.slotIndex
+        local itemId = select(4, ZO_LinkHandler_ParseLink(GetItemLink(bagId, slotIndex)))
 
-      local itemId = select(4, ZO_LinkHandler_ParseLink(GetItemLink(bagId, slotIndex)))
-      if lookup[itemId] == alliance then return true end
-      return false
-   end
+        if lookup[itemId] == alliance then return true end
+    end
 end
 
 local siegeAllianceDropdownCallbacks = {
-   [1] = { name = "AD", filterCallback = GetFilterCallbackAlliance(AD) },
-   [2] = { name = "EP", filterCallback = GetFilterCallbackAlliance(EP) },
-   [3] = { name = "DC", filterCallback = GetFilterCallbackAlliance(DC) },
+    {name = "AD", filterCallback = GetFilterCallbackAlliance(AD)},
+    {name = "EP", filterCallback = GetFilterCallbackAlliance(EP)},
+    {name = "DC", filterCallback = GetFilterCallbackAlliance(DC)},
 }
 
 local strings = {
-   ["AD"] = GetString("SI_ALLIANCE", AD),
-   ["EP"] = GetString("SI_ALLIANCE", EP),
-   ["DC"] = GetString("SI_ALLIANCE", DC),
+    AD = GetString("SI_ALLIANCE", AD),
+    EP = GetString("SI_ALLIANCE", EP),
+    DC = GetString("SI_ALLIANCE", DC),
 }
 
 local filterInformation = {
-   callbackTable = siegeAllianceDropdownCallbacks,
-   filterType = ITEMFILTERTYPE_MISCELLANEOUS,
-   subfilters = {
-      [1] = "Siege",
-   },
-   enStrings = strings,
+    callbackTable = siegeAllianceDropdownCallbacks,
+    filterType = ITEMFILTERTYPE_MISCELLANEOUS,
+    subfilters = {"Siege",},
+    enStrings = strings,
 }
-
 AdvancedFilters_RegisterFilter(filterInformation)
