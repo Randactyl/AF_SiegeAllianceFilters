@@ -1,6 +1,7 @@
 local AD = 1
 local EP = 2
 local DC = 3
+local ANY = 4
 
 local util = AdvancedFilters.util
 
@@ -52,6 +53,8 @@ local lookup = {
     ["64514"] = DC, --Covenant Cold Fire Trebuchet
     ["64517"] = DC, --Covenant Cold Fire Ballista
     ["64518"] = DC, --Covenant Cold Stone Trebuchet
+
+    ["30359"] = ANY, --Flaming Oil
 }
 
 local function GetFilterCallbackAlliance(alliance)
@@ -59,7 +62,6 @@ local function GetFilterCallbackAlliance(alliance)
         local itemLink = util.GetItemLink(slot)
         local itemId = select(4, ZO_LinkHandler_ParseLink(itemLink))
 
-        if lookup[itemId] == alliance then return true end
     end
 end
 
