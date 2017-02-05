@@ -73,9 +73,9 @@ local siegeAllianceDropdownCallbacks = {
 }
 
 local strings = {
-    AD = GetString("SI_ALLIANCE", AD),
-    EP = GetString("SI_ALLIANCE", EP),
-    DC = GetString("SI_ALLIANCE", DC),
+    AD = util.Localize(SI_ALLIANCE1),
+    EP = util.Localize(SI_ALLIANCE2),
+    DC = util.Localize(SI_ALLIANCE3),
 }
 
 local filterInformation = {
